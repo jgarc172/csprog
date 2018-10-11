@@ -11,6 +11,9 @@ namespace lab7_4
             Console.WriteLine(callList.getValue("Jim"));
             callList.replaceVal("Jim", 4322);
             Console.WriteLine(callList.showAll());
+
+            var guests = new AddressBook("Sue", 3322);
+            Console.WriteLine(guests.showAll());
         }
     }
     class AddressBook
@@ -20,6 +23,11 @@ namespace lab7_4
         public AddressBook()
         {
             numUsed = 0;
+        }
+        public AddressBook(string newKey, int newVal)
+            : this()
+        {
+            add(newKey, newVal);
         }
         public void add(string newKey, int newVal)
         {
@@ -36,7 +44,8 @@ namespace lab7_4
             }
             return -1;
         }
-        public void replaceVal(string aKey, int aVal){
+        public void replaceVal(string aKey, int aVal)
+        {
             var index = IndexOf(aKey);
             if (index > -1)
             {
