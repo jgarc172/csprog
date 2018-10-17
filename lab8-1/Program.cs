@@ -14,6 +14,11 @@ namespace lab8_1
             newHire.giveRaise(3.2);
             newHire.setHours(40.0);
             newHire.printCheck();
+
+            Console.WriteLine("Employee Object");
+            Employee abc = new Employee(ref name, ref ssn);
+            Console.WriteLine(abc.getName());
+
         }
     }
     public class Employee
@@ -32,6 +37,12 @@ namespace lab8_1
         }
         public string getSsn(){
             return this.ssn;
+        }
+        public void printCheck()
+        {
+            var check = $"Pay to: {this.name} \n";
+            check += $"Amount: ${this.netPay} \n";
+            Console.WriteLine(check);
         }
     }
     public class HourlyEmp : Employee
