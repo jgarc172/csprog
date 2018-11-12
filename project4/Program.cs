@@ -23,7 +23,11 @@ namespace employee
 
         }
     }
-    class employee {  //base class parent class 
+    public interface IEmployee
+    {
+       void printCheck();
+    }
+    class employee : IEmployee {  //base class parent class 
          protected string name;
          protected string ssn;
          protected double netPay;
@@ -63,7 +67,7 @@ namespace employee
          Console.WriteLine("Paycheck");
      }
    }
-    class hourlyEmp: employee  //derived class child class
+    class hourlyEmp: employee, IEmployee  //derived class child class
     {
          
          private double hours;
@@ -119,7 +123,7 @@ namespace employee
      }
 
 
-    class salariedEmp : employee 
+    class salariedEmp : employee, IEmployee
     {
         protected double salary;
         public void giveRaise(double amount)
@@ -147,7 +151,7 @@ namespace employee
         }
 
 
-        public void printCheck() 
+        public override void printCheck() 
         {
             base.printCheck();
              Console.WriteLine("Pay " + this.name + " the sum of " + this.netPay + " Dollars.");
